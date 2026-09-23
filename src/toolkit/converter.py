@@ -8,4 +8,4 @@ measures = {
     'g': 0.001
 }
 def convert_len(value,from_measure,to_measure):
-    return value * measures(from_measures) / measures(to_measures)
+    return value * measures(from_measure) / measures(to_measure)
