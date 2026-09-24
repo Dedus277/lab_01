@@ -38,4 +38,18 @@ def convert_measure(value: float,from_measure: str,to_measure:str):
         return convert_temprature(value,from_measure, to_measure)
     table = length if group_from == 'length' else mass
     return float(value*table[from_measure]/table[to_measure])
+def convert_temprature(value:float,from_measure:str,to_measure:str):
+    if from_measure  == 'c':
+        k = value + 273.15
+    if from_measure == 'f':
+        k = (value + 459.67) * 5 / 9
+    else: 
+        k = value
+
+    if to_measure == 'c':
+        return k - 273.15
+    if to_measure == 'f':
+        return k * 9 / 5 - 459.67
+    return k
+
     
