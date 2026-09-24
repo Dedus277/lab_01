@@ -1,4 +1,8 @@
-from .errors import *
+from .errors import (
+       BelowAbsoluteZeroError,
+       IncompatibleUnitsError,
+       UnknownUnitError,
+   )
 length = {
     'mm': 0.001,
     'cm': 0.01,
@@ -39,14 +43,13 @@ def convert_measure(value: float,from_measure: str,to_measure:str):
         return convert_temprature(value,from_measure, to_measure)
     table = length if group_from == 'length' else mass
     return float(value*table[from_measure]/table[to_measure])
-def convert_temprature(value:float,from_measure:str,to_measure:str):
-    if from_measure  == 'c':
+def convert_temprature(value: float, from_measure: str, to_measure: str) -> float:
+    if from_measure == 'c':
         k = value + 273.15
-    if from_measure == 'f':
+    elif from_measure == 'f':
         k = (value + 459.67) * 5 / 9
-    else: 
+    else:
         k = value
-
     if to_measure == 'c':
         return k - 273.15
     if to_measure == 'f':
