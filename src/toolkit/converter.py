@@ -1,3 +1,4 @@
+from .errors import *
 length = {
     'mm': 0.001,
     'cm': 0.01,
@@ -10,9 +11,9 @@ mass = {
     'g': 0.001
 }
 abs_zero = {
-    "C": -273.15,
-    "K": 0.0,
-    "F": -459.67
+    "c": -273.15,
+    "k": 0.0,
+    "f": -459.67
 }
 def group(unit:str):
     if unit in length:
@@ -29,12 +30,12 @@ def convert_measure(value: float,from_measure: str,to_measure:str):
     group_from = group(from_measure)
     group_to = group(to_measure)
     if group_from is None or group_to is None:
-        raise UnknownUnitError(f"{from_measure} и {}")
+        raise UnknownUnitError(f"Неизвестная единица: {from_measure if group_from is None else to_measure}")
     if group_from != group_to:
         raise IncompatibleUnitsError(f"{from_measure} и {to_measure} несовместимы")
     if group_from == 'degree':
         if value < abs_zero[from_measure]:
-            raise IncompatiblUnitsError("Ниже абсолютного нуля")
+            raise BelowAbsoluteZeroError("Ниже абсолютного нуля")
         return convert_temprature(value,from_measure, to_measure)
     table = length if group_from == 'length' else mass
     return float(value*table[from_measure]/table[to_measure])
