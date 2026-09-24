@@ -52,5 +52,3 @@ def convert_temprature(value:float,from_measure:str,to_measure:str):
     if to_measure == 'f':
         return k * 9 / 5 - 459.67
     return k
-
-    
