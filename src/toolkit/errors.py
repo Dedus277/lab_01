@@ -24,7 +24,7 @@ class DivisionByZeroError(ToolkitError):
     """Попытка деления на ноль."""
     pass
 
-class InvalidNumericValueError(ToolkitError):
+class InvalidNumberError(ToolkitError):
     """Неверное числовое значение (например, '2.5.6')."""
     pass
 
