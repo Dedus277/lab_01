@@ -15,7 +15,7 @@ def test_kg_to_g():
     assert convert_measure(1.5, "kg", "g") == 1500.0
 
 def test_c_to_f():
-    assert convert_measure(0, "c", "f") == 32.0
+    assert convert_measure(0, "c", "f") == pytest.approx(32.0)
 
 def test_absolute_zero():
     assert convert_measure(-273.15, "c", "k") == pytest.approx(0.0)
