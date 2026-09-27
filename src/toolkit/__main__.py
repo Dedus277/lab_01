@@ -5,6 +5,7 @@ from .calculator import calculate
 from .converter import convert_measure
 from .errors import ToolkitError
 
+
 def _build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="toolkit",
