@@ -42,4 +42,4 @@ if __name__ == "__main__":
         sys.exit(main())
     except ToolkitError as e:
         print(e, file=sys.stderr)
-        sys.exit(2)
+        sys.exit(2)     
