@@ -1,5 +1,3 @@
-"""Вычислительное ядро калькулятора."""
-
 from .errors import (
     ConsecutiveOperatorsError,
     DivisionByZeroError,
@@ -107,8 +105,8 @@ def solve_rpl(rpn: list[str]) -> float:
             stack.append(left - right)
         elif tok == '*':
             stack.append(left * right)
-        elif right == 0:
-            raise DivisionByZeroError("Деление на ноль")
-        else:
+        elif tok == '/':
+            if right == 0:
+                raise DivisionByZeroError("Деление на ноль")
             stack.append(left / right)
     return stack[0]
